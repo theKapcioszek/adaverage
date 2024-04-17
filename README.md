@@ -21,7 +21,7 @@ Expected Output:
 Average:
       3.286
 Dominant:
-      6.000
+      2.000
 Median:
       2.000
 

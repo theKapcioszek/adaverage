@@ -7,6 +7,8 @@ procedure adaverage is
   Arr : Tablica (1 .. Argument_Count);
   Avrg : Float := 0.0;
   Dom : Float := 0.0;
+  Cnt : Integer := 0;
+  MaxCnt : Integer := 0;
   Buf : Float := 0.0;
   Med : Float := 0.0;
   package FLT renames Ada.Float_Text_IO;
@@ -20,11 +22,17 @@ begin
   end loop;
   Avrg := Avrg / Float(Argument_Count);
 
-  Dom := Arr (1);
   for i in 1 .. Argument_Count loop
-    if Dom < Arr (i) then
+    for j in 1 .. Argument_Count loop
+      if Arr (i) = Arr (j) then
+        Cnt := Cnt + 1;
+      end if;
+    end loop;
+    if Cnt > MaxCnt then
+      MaxCnt := Cnt;
       Dom := Arr (i);
     end if;
+    Cnt := 0;
   end loop;
 
   Buf := Float(Argument_Count);
