@@ -4,15 +4,12 @@ with Ada.Float_Text_IO;
 
 procedure adaverage is
   type Tablica is array (Integer range <>) of Float;
---  Msg: String (1 .. 100);
---  Last: Natural;
   Arr : Tablica (1 .. Argument_Count);
   Avrg : Float := 0.0;
   Dom : Float := 0.0;
   Buf : Float := 0.0;
   Med : Float := 0.0;
   package FLT renames Ada.Float_Text_IO;
---  package CLI renames Ada.Command_Line;
 begin
   for i in 1 .. Argument_Count loop
     Arr (i) := Float'Value (Argument (i));
